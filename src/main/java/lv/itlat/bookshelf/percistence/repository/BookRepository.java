@@ -26,6 +26,7 @@ public class BookRepository {
         return book;
     }
 
+
     public void update(List<Book> books) {
         for (Book book : books) {
             getEntityManager().merge(books);
@@ -46,4 +47,9 @@ public class BookRepository {
     public List<Book> getAll() {
         return getEntityManager().createQuery("SELECT p FROM Book p", Book.class).getResultList();
     }
+
+    public List<Book> retrieve() {
+        return getEntityManager().createQuery("SELECT b FROM Book b", Book.class).getResultList();
+    }
+
 }
