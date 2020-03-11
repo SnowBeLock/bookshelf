@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+
+        <h:form id="new-book-form">
+            <div>
+                <h:outputLabel value="Title: "/>
+                <h:inputText id="title" value="#{newBookController.book.title}"/>
+            </div>
+            <div>
+                <h:outputLabel value="Author: "/>
+                <h:inputText id="author"  value="#{newBookController.book.author}"/>
+            </div>
+            <div>
+                <h:outputLabel value="Year: "/>
+                <h:inputText id="year"  value="#{newBookController.book.year}"/>
+            </div>
+
+            <div>
+                <h:outputLabel value="ISBN: "/>
+                <h:inputText id="isbn"  value="#{newBookController.book.isbn}"/>
+            </div>
+            <div>
+                <h:outputLabel value="Description: "/>
+                <h:inputText id="description"  value="#{newBookController.book.description}"/>
+            </div>
+
+
+            <div>
+                <h:commandButton action="#{newBookController.create}"
+                                 value="Create">
+                    <f:ajax render="@form" execute ="@form"/>
+
+                </h:commandButton>
+
+            </div>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
+</html>
